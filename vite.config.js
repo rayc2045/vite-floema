@@ -1,20 +1,20 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import path,{ resolve } from 'path';
 
 import pugPlugin from 'vite-plugin-pug';
 import babel from 'vite-plugin-babel';
 
 export default defineConfig({
+  // resolve: {
+  //   alias: {
+  //     '@': path.resolve(__dirname, './src'),
+  //   },
+  // },
   plugins: [
-    pugPlugin(),
+    pugPlugin({
+      localImports: true,
+    }),
     babel(),
-    // babel({
-    //   babelConfig: {
-    //     babelrc: false,
-    //     configFile: false,
-    //     plugin: ['@babel/plugin-proposal-decorators'],
-    //   },
-    // }),
   ],
   build: {
     rollupOptions: {
