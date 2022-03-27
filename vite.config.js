@@ -1,20 +1,17 @@
 import { defineConfig } from 'vite';
-import path,{ resolve } from 'path';
+import path, { resolve } from 'path';
 
 import pugPlugin from 'vite-plugin-pug';
 import babel from 'vite-plugin-babel';
+import compress from 'vite-plugin-compress';
 
 export default defineConfig({
-  // resolve: {
-  //   alias: {
-  //     '@': path.resolve(__dirname, './src'),
-  //   },
-  // },
   plugins: [
     pugPlugin({
       localImports: true,
     }),
     babel(),
+    compress(),
   ],
   build: {
     rollupOptions: {
